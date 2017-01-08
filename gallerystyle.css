@@ -1,0 +1,169 @@
+body {
+  margin:0;
+  background-color:black;
+  color:yellow;
+}
+
+a {
+  text-decoration:none;
+  color:yellow;
+}
+.zoomButtons, .navbutton, #messagebutton{
+  height:4em;
+  position:fixed;
+  bottom: 45px;
+  width:15%;
+}
+
+#messagebutton {
+  left:45%;
+}
+
+#decreaseThumb, #forwardbutton {
+  right: 15px;
+}
+
+#increaseThumb, #backbutton {
+  left: 15px;
+}
+
+.thumbnail, .folderthumbnail {
+  vertical-align: text-top;
+  margin:0;
+  color: yellow;
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+  width:auto;
+  height: 100px;
+  background-size: auto 50%;
+}
+
+.thumbnail{
+    background: url("/ajax-loader.gif") 50% 50% no-repeat;
+}
+
+.thumbnail:hover {
+  opacity: 1;
+  filter: alpha(opacity=100); /* For IE8 and earlier */
+  cursor:pointer;    
+}
+
+.folderthumbnail {
+	width:100px;
+	display: inline-block;
+  overflow:hidden;
+  //background: url("folder.ico") 50% 50% no-repeat;
+  color: yellow;
+}
+	
+.folderthumbnail:hover {
+	cursor:pointer;
+  color:white;
+  opacity: 1;
+  filter: alpha(opacity=100); /* For IE8 and earlier */
+}	
+#previewport {
+  position: absolute;
+  top: 0; /* Header Height */
+  bottom: 0; /* Footer Height */
+  width: 100%;
+  height:100%;
+  /*overflow:scroll;*/
+  text-align:center;
+  background:black;
+  -webkit-user-select: none;
+}
+
+#viewport {
+  position: absolute;
+  top: 0; /* Header Height */
+  bottom: 0; /* Footer Height */
+  width: 100%;
+  height:100%;
+  background:black;
+  background-size:contain;
+  background-repeat: no-repeat;
+  background-position: center; 
+  text-align:center;
+  -webkit-user-select: none;
+}
+
+#viewport img{
+  max-width:100%;
+  max-height:100%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+#imageSetupscreen, #thumbViewSetupScreen, #aboutScreen {
+  position: absolute;
+  top: 0; /* Header Height */
+  bottom: 0; /* Footer Height */
+  width: 100%;
+  height:100%;
+  background:black;
+  background-size:contain;
+  background-repeat: no-repeat;
+  background-position: center; 
+  text-align:center;
+  opacity: 0.8;
+  filter: alpha(opacity=80); /* For IE8 and earlier */
+  display:none;
+}
+
+#thumbViewSetupScreen, #aboutScreen {
+  position: fixed;
+}
+
+#setupmenu {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  color:yellow;
+  padding:10px;
+  white-space:nowrap;
+}
+
+#setupmenu p {
+  border:yellow solid 1px;
+  padding: 10px;    
+}
+
+#setupmenu p:hover {
+  cursor:pointer;
+}
+#imageInfobox {
+  background-color: black;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  border: yellow solid 1px;
+  color: yellow;
+  padding: 10px;
+  text-align:left;
+}
+
+.exifTag{
+  color:white;
+}
+
+#errorBox{
+  position: absolute;
+  left: 50%;
+  top:50%;
+  transform: translate(-50%,-100%);
+  background-color: black;
+  border: yellow solid 1px;
+  padding: 10px;
+  font-size:2em;
+}
+
+#ajax-loader {
+	position: absolute;
+	top: 50%;
+  left: 50%;
+  top:50%;
+  transform: translate(-50%,-50%);
+}
