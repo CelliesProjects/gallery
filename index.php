@@ -106,10 +106,10 @@ function showImageInfo( img ){
       if ( EXIF.getTag( this, "DateTime" ) ) {
         exifString += 'Date: <span class="exifTag">' + EXIF.getTag( this, "DateTime" ) + '</span><br>';
       }
-      if ( EXIF.getTag( this, "DateTime" ) ) {
+      if ( EXIF.getTag( this, "PixelXDimension" ) ) {
         exifString += 'Dimensions: <span class="exifTag">' + EXIF.getTag(this, "PixelXDimension");      
         
-        exifString += ' * ' + EXIF.getTag(this, "PixelYDimension") + '</span><br>';
+        exifString += ' x ' + EXIF.getTag(this, "PixelYDimension") + '</span><br>';
       }
       if ( EXIF.getTag( this, "Make" ) ) {
         exifString += 'Make: <span class="exifTag">' + EXIF.getTag(this, "Make") + '</span><br>';
@@ -128,7 +128,7 @@ function showImageInfo( img ){
       
       if ( EXIF.getTag( this, "FocalLength" ) ) {
         var focalLength = EXIF.getTag( this, "FocalLength" );
-        exifString += 'Focal Length: <span class="exifTag">' + focalLength + 'mm</span><br>';
+        exifString += 'Focal Length: <span class="exifTag">' + focalLength + ' mm</span><br>';
       }
 
       if ( EXIF.getTag( this, "FNumber" ) ) {
@@ -137,7 +137,7 @@ function showImageInfo( img ){
       
       if ( imageInfo ) {  
         //$('#imageInfobox').hide();        
-        if ( exifString != '') { exifString = '<br><br>Exif data found:<br>' + exifString; }
+        if ( exifString != '') { exifString = '<br><br>EXIF image data found:<br>' + exifString; }
         $('#viewport').append('<p id="imageInfobox">' + unescape(imageArray[currentImage]) + exifString + '</p>');
       }
     });    
