@@ -8,7 +8,7 @@
   if (!$imageLocation) die('geen filename!');
   
   $foldername = substr($imageLocation,0,strrpos($imageLocation, '/'));
-  $fileName = substr($imageLocation,strrpos($imageLocation, '/')+1);
+  $fileName = substr($imageLocation,strrpos($imageLocation, '/'));
   if ( $foldername ) {
     
     $thumb_folder = $foldername.'/.thumbs/';     // folder where the thumbs are stored
@@ -55,12 +55,14 @@ function resizeNormal($normal_image,$url,$newsize){
 function resizeGif($gif_image,$url,$newgifsize){
   //resize gif images
   $gif_image = $gif_image->coalesceImages(); 
+
   do {
-     $gif_image->resizeImage(0, $newgifsize, Imagick::FILTER_BOX, 1);
+     $gif_image->resizeImage($newgifsize, $newgifsize, Imagick::FILTER_BOX, 1);
   } while ($gif_image->nextImage()); 
 
   $gif_image = $gif_image->deconstructImages(); 
   $gif_image->writeImages($url, true);    
+
   return $gif_image;
 }
 

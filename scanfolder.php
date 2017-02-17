@@ -12,11 +12,18 @@
 	  $folder = $folder.'/'; 
       echo '<p class="folderthumbnail" alt="'.$folder.'" title="'.$folder.'">..</p><script>addFolderToArray("'.$folder.'");</script>'; 
   }
+  
 foreach ( glob( $folder."*", GLOB_ONLYDIR)  as $foldername ) {
 	echo '<p class="folderthumbnail" alt="'.$foldername.'" title="'.$foldername.'">'.$foldername.'</p><script>addFolderToArray("'.$foldername.'");</script>';
 }
+
 foreach ( glob( $folder."*.{jpg,JPG,gif,GIF,png,PNG}", GLOB_BRACE ) as $filename) {
-    echo '<img class="thumbnail" src="getthumbV3.php?filename='.urlencode($filename).'" alt="'.$filename.'" title="'. substr( $filename, strrpos( $filename, '/' ) + 1 ). '"><script>addImageToArray("'.$filename.'");</script>';
+  if ( strrpos( $filename, '/' ) == 0 ) {
+    $offset = 0;
+  } else {
+    $offset = 1;
+  }
+  echo '<img class="thumbnail" src="getthumbV3.php?filename='.urlencode($filename).'" alt="'.$filename.'" title="'. substr( $filename, strrpos( $filename, '/' ) + $offset ). '"><script>addImageToArray("'.$filename.'");</script>';
 }    
 ?><input type="button" class="zoomButtons" id="increaseThumb" value="Groter"></button>
 <input type="button" class="zoomButtons" id="decreaseThumb" value="Kleiner"></button>
