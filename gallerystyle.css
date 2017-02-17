@@ -52,7 +52,8 @@ a {
 	width:100px;
 	display: inline-block;
   overflow:hidden;
-  //background: url("folder.ico") 50% 50% no-repeat;
+  background: url("folder.ico") 50% 50% no-repeat;
+  background-color:#222222;
   color: yellow;
 }
 	
